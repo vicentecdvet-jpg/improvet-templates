@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff;
+    width: 794px;
+    min-height: 1123px;
+    padding: 48px;
+    color: #1a1a1a;
+  }
+
+  /* ÁREA DA MARCA */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--brand, #1D9E75);
+  }
+
+  .logo-area {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .logo-placeholder {
+    width: 140px;
+    height: 56px;
+    border: 1.5px dashed #b0b0b0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: #b0b0b0;
+    letter-spacing: 0.5px;
+  }
+
+  .clinic-info {
+    text-align: right;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.8;
+  }
+
+  .clinic-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--brand, #1D9E75);
+    margin-bottom: 2px;
+  }
+
+  /* TÍTULO */
+  .title-block {
+    margin-bottom: 28px;
+  }
+
+  .title-block h1 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    letter-spacing: -0.3px;
+  }
+
+  .title-block p {
+    font-size: 13px;
+    color: #888;
+    margin-top: 4px;
+  }
+
+  /* TABELA */
+  .section {
+    margin-bottom: 24px;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: var(--brand, #1D9E75);
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #888;
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  thead th:last-child { text-align: right; }
+
+  tbody tr {
+    border-bottom: 0.5px solid #f0f0f0;
+  }
+
+  tbody tr:last-child {
+    border-bottom: none;
+  }
+
+  tbody td {
+    font-size: 13px;
+    padding: 11px 12px;
+    color: #1a1a1a;
+    vertical-align: top;
+  }
+
+  tbody td:last-child {
+    text-align: right;
+    font-weight: 500;
+    color: var(--brand, #1D9E75);
+    white-space: nowrap;
+  }
+
+  .procedure-name {
+    font-weight: 500;
+  }
+
+  .procedure-desc {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  /* SEÇÃO COMBOS */
+  .combo-section {
+    margin-bottom: 24px;
+  }
+
+  .combo-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--brand, #1D9E75);
+    background: #f0faf5;
+    border: 1px solid var(--brand, #1D9E75);
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+  .combo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 11px 12px;
+    border-bottom: 0.5px solid #f0f0f0;
+  }
+
+  .combo-row:last-child { border-bottom: none; }
+
+  .combo-left {}
+
+  .combo-name {
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  .combo-items {
+    font-size: 11px;
+    color: #999;
+    margin-top: 2px;
+  }
+
+  .combo-right {
+    text-align: right;
+    flex-shrink: 0;
+    margin-left: 16px;
+  }
+
+  .combo-original {
+    font-size: 11px;
+    color: #bbb;
+    text-decoration: line-through;
+    margin-bottom: 2px;
+  }
+
+  .combo-price {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--brand, #1D9E75);
+  }
+
+  .combo-save {
+    font-size: 10px;
+    color: #888;
+    margin-top: 1px;
+  }
+
+  /* FORMAS DE PAGAMENTO */
+  .payment-section {
+    margin-top: 8px;
+    padding: 14px 16px;
+    background: #fafafa;
+    border-radius: 8px;
+    border: 0.5px solid #e8e8e8;
+  }
+
+  .payment-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 8px;
+  }
+
+  .payment-items {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .payment-item {
+    font-size: 12px;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .payment-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--brand, #1D9E75);
+    flex-shrink: 0;
+  }
+
+  /* RODAPÉ */
+  .footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-contact {
+    font-size: 11px;
+    color: #999;
+    line-height: 1.8;
+  }
+
+  .footer-obs {
+    font-size: 10px;
+    color: #bbb;
+    text-align: right;
+    max-width: 280px;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body data-document-role="page" data-label="Tabela de Preços">
+
+  <!-- CABEÇALHO COM MARCA -->
+  <div class="header">
+    <div class="logo-area">
+      <div class="logo-placeholder">INSIRA SUA LOGO</div>
+    </div>
+    <div class="clinic-info">
+      <div class="clinic-name">Nome da Clínica / Serviço</div>
+      <div>CRMV 00000</div>
+      <div>cidade@email.com</div>
+      <div>(00) 9 0000-0000</div>
+    </div>
+  </div>
+
+  <!-- TÍTULO -->
+  <div class="title-block">
+    <h1>Tabela de preços</h1>
+    <p>Válida a partir de Julho de 2026 · Sujeita a alterações sem aviso prévio</p>
+  </div>
+
+  <!-- ULTRASSONOGRAFIA -->
+  <div class="section">
+    <div class="section-label">Ultrassonografia</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Procedimento</th>
+          <th style="text-align:right">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="procedure-name">US Abdominal completo</div>
+            <div class="procedure-desc">Avaliação de todos os órgãos abdominais</div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="procedure-name">US Cervical</div>
+            <div class="procedure-desc"></div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="procedure-name">US Ocular</div>
+            <div class="procedure-desc"></div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="procedure-name">Drenagem / Biópsia guiada</div>
+            <div class="procedure-desc">Procedimento guiado por imagem</div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="procedure-name">Elastografia</div>
+            <div class="procedure-desc"></div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- RAIO-X -->
+  <div class="section">
+    <div class="section-label">Raio-X</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Procedimento</th>
+          <th style="text-align:right">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="procedure-name">RX Tórax (por estudo)</div>
+            <div class="procedure-desc">Até 2 projeções</div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="procedure-name">RX Abdômen</div>
+            <div class="procedure-desc"></div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="procedure-name">RX Coluna</div>
+            <div class="procedure-desc">Por segmento</div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="procedure-name">RX Ortopédico</div>
+            <div class="procedure-desc">Por região / membro</div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CARDIOLOGIA -->
+  <div class="section">
+    <div class="section-label">Cardiologia</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Procedimento</th>
+          <th style="text-align:right">Valor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="procedure-name">Ecocardiograma (ECO)</div>
+            <div class="procedure-desc">Modo B, M e Doppler</div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="procedure-name">Eletrocardiograma (Eletro)</div>
+            <div class="procedure-desc"></div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="procedure-name">Pressão arterial</div>
+            <div class="procedure-desc"></div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="procedure-name">Consulta cardiológica</div>
+            <div class="procedure-desc"></div>
+          </td>
+          <td>R$ 000,00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- COMBOS -->
+  <div class="combo-section">
+    <div class="combo-label">Combos — 10% de desconto</div>
+
+    <div class="combo-row">
+      <div class="combo-left">
+        <div class="combo-name">Combo US + Drenagem</div>
+        <div class="combo-items">US Abdominal + Drenagem guiada</div>
+      </div>
+      <div class="combo-right">
+        <div class="combo-original">R$ 000,00</div>
+        <div class="combo-price">R$ 000,00</div>
+        <div class="combo-save">Você economiza R$ 00,00</div>
+      </div>
+    </div>
+
+    <div class="combo-row">
+      <div class="combo-left">
+        <div class="combo-name">Combo RX Tórax + Faringe</div>
+        <div class="combo-items">RX Tórax + RX Faringe</div>
+      </div>
+      <div class="combo-right">
+        <div class="combo-original">R$ 000,00</div>
+        <div class="combo-price">R$ 000,00</div>
+        <div class="combo-save">Você economiza R$ 00,00</div>
+      </div>
+    </div>
+
+    <div class="combo-row">
+      <div class="combo-left">
+        <div class="combo-name">Combo Cardio Completo</div>
+        <div class="combo-items">Consulta + ECO + Eletro + Pressão</div>
+      </div>
+      <div class="combo-right">
+        <div class="combo-original">R$ 000,00</div>
+        <div class="combo-price">R$ 000,00</div>
+        <div class="combo-save">Você economiza R$ 00,00</div>
+      </div>
+    </div>
+
+    <div class="combo-row">
+      <div class="combo-left">
+        <div class="combo-name">Combo Estadiamento</div>
+        <div class="combo-items">US Abdominal + RX Tórax</div>
+      </div>
+      <div class="combo-right">
+        <div class="combo-original">R$ 000,00</div>
+        <div class="combo-price">R$ 000,00</div>
+        <div class="combo-save">Você economiza R$ 00,00</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FORMAS DE PAGAMENTO -->
+  <div class="payment-section">
+    <div class="payment-title">Formas de pagamento</div>
+    <div class="payment-items">
+      <div class="payment-item"><span class="payment-dot"></span>PIX / Dinheiro — desconto adicional de 10%</div>
+      <div class="payment-item"><span class="payment-dot"></span>Cartão de crédito — 1x sem juros</div>
+      <div class="payment-item"><span class="payment-dot"></span>Parcelamento — a partir de R$ 000,00</div>
+      <div class="payment-item"><span class="payment-dot"></span>Clínicas conveniadas — faturamento mensal</div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="footer">
+    <div class="footer-contact">
+      <div>@seuperfil · www.seusite.com.br</div>
+      <div>WhatsApp: (00) 9 0000-0000</div>
+    </div>
+    <div class="footer-obs">
+      Valores referentes a animais de pequeno porte. Pets exóticos e animais de grande porte sob consulta. Preços válidos para atendimento na clínica parceira.
+    </div>
+  </div>
+
+</body>
+</html>
