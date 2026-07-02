@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Folder de Serviços — Template</title>
+<style>
+  :root {
+    --ink: #1B2430;
+    --ink-soft: #2A3547;
+    --gold: #C79A3A;
+    --gold-light: #E8D5A3;
+    --cream: #FAF7F0;
+    --teal: #2F5D62;
+    --slate: #3C4550;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Work Sans', Arial, sans-serif;
+    background: var(--cream);
+    color: var(--slate);
+  }
+  .page {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--cream);
+  }
+  /* HEADER */
+  .header {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 48px 56px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .scale-bar {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 24px;
+  }
+  .scale-bar span {
+    display: block;
+    width: 1px;
+    height: 10px;
+    background: var(--gold);
+    opacity: 0.7;
+  }
+  .scale-bar span:nth-child(5n) { height: 16px; opacity: 1; }
+  .scale-bar .label {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-left: 12px;
+    white-space: nowrap;
+  }
+  .logo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .brand-name {
+    font-family: 'Georgia', serif;
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .brand-crmv {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .tagline {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--gold-light);
+    max-width: 320px;
+    text-align: right;
+    line-height: 1.4;
+  }
+  /* PHOTO FRAMES */
+  .photo-section {
+    padding: 40px 56px 0;
+  }
+  .photo-frame {
+    border: 2px dashed var(--gold);
+    background: rgba(199, 154, 58, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 28px 16px;
+    gap: 8px;
+  }
+  .photo-frame.pessoal { max-width: 280px; aspect-ratio: 3 / 4; }
+  .photo-frame .icon { font-size: 26px; opacity: 0.6; }
+  .photo-frame .label {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .photo-frame .desc {
+    font-size: 12.5px;
+    color: var(--slate);
+    max-width: 200px;
+    line-height: 1.4;
+  }
+  .service-card .photo-frame {
+    aspect-ratio: 16 / 9;
+    max-width: none;
+    padding: 14px 10px;
+    margin-bottom: 12px;
+  }
+  .service-card .photo-frame .icon { font-size: 18px; }
+  .service-card .photo-frame .desc { font-size: 11px; max-width: 240px; }
+  /* SERVICES */
+  .services {
+    padding: 44px 56px;
+  }
+  .section-eyebrow {
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Georgia', serif;
+    font-size: 26px;
+    color: var(--ink);
+    margin-bottom: 28px;
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .service-card {
+    border: 1px solid #E3DBC8;
+    border-left: 3px solid var(--gold);
+    background: #fff;
+    padding: 20px 22px;
+  }
+  .service-name {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .service-desc {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--slate);
+  }
+  /* DIFERENCIAIS */
+  .diferenciais {
+    background: var(--gold-light);
+    padding: 40px 56px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .diferencial {
+    text-align: left;
+  }
+  .diferencial .num {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: var(--teal);
+    letter-spacing: 2px;
+  }
+  .diferencial .txt {
+    font-family: 'Georgia', serif;
+    font-size: 15px;
+    color: var(--ink);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+  /* FOOTER / CONTATO */
+  .footer {
+    background: var(--ink-soft);
+    color: var(--cream);
+    padding: 36px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer .cta {
+    font-family: 'Georgia', serif;
+    font-size: 20px;
+    color: var(--gold-light);
+  }
+  .footer .contact-info {
+    font-size: 13px;
+    line-height: 1.8;
+    text-align: right;
+  }
+  .footer .contact-info b { color: var(--gold-light); }
+
+  @media (max-width: 600px) {
+    .service-grid, .diferenciais { grid-template-columns: 1fr; }
+    .header, .services, .diferenciais, .footer, .photo-section { padding-left: 24px; padding-right: 24px; }
+    .tagline { text-align: left; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="scale-bar">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span class="label">DIAGNÓSTICO POR IMAGEM</span>
+    </div>
+    <div class="logo-row">
+      <div>
+        <div class="brand-name">[Seu Nome ou Marca]</div>
+        <div class="brand-crmv">CRMV [00000] · [Cidade/Região de Atuação]</div>
+      </div>
+      <div class="tagline">"[Sua promessa em uma frase — ex: Diagnóstico preciso, atendimento que encanta]"</div>
+    </div>
+  </div>
+
+  <div class="photo-section">
+    <div class="photo-frame pessoal">
+      <div class="icon">📷</div>
+      <div class="label">Foto pessoal</div>
+      <div class="desc">Cole aqui uma foto sua, de rosto/meio corpo, com jaleco ou uniforme — transmite confiança e identifica quem presta o serviço</div>
+    </div>
+  </div>
+
+  <div class="services">
+    <div class="section-eyebrow">O que eu ofereço</div>
+    <div class="section-title">Serviços</div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="photo-frame">
+          <div class="icon">📷</div>
+          <div class="desc">Foto realizando Ultrassonografia</div>
+        </div>
+        <div class="service-name">Ultrassonografia</div>
+        <div class="service-desc">[Descreva brevemente: abdominal, torácico, cervical, técnicas avançadas que você oferece]</div>
+      </div>
+      <div class="service-card">
+        <div class="photo-frame">
+          <div class="icon">📷</div>
+          <div class="desc">Foto realizando Radiografia</div>
+        </div>
+        <div class="service-name">Radiografia (RX)</div>
+        <div class="service-desc">[Descreva: ortopédico, torácico, contrastado — o que for aplicável]</div>
+      </div>
+      <div class="service-card">
+        <div class="photo-frame">
+          <div class="icon">📷</div>
+          <div class="desc">Foto realizando Ecocardiografia</div>
+        </div>
+        <div class="service-name">Ecocardiografia</div>
+        <div class="service-desc">[Descreva: consulta cardiológica, eletro, aferição de pressão]</div>
+      </div>
+      <div class="service-card">
+        <div class="photo-frame">
+          <div class="icon">📷</div>
+          <div class="desc">Foto realizando [outro serviço]</div>
+        </div>
+        <div class="service-name">[Outro serviço]</div>
+        <div class="service-desc">[Descreva]</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="diferenciais">
+    <div class="diferencial">
+      <div class="num">01</div>
+      <div class="txt">Laudo em até [X horas] — sem enrolação pro tutor e pro veterinário</div>
+    </div>
+    <div class="diferencial">
+      <div class="num">02</div>
+      <div class="txt">Atendimento [volante/ponto fixo] com equipamento [descrever diferencial técnico]</div>
+    </div>
+    <div class="diferencial">
+      <div class="num">03</div>
+      <div class="txt">[Diferencial de relacionamento — ex: discussão direta do caso com o veterinário]</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="cta">Agende seu exame</div>
+    <div class="contact-info">
+      <b>WhatsApp</b> [seu número]<br>
+      <b>Instagram</b> @[seu perfil]<br>
+      <b>Área de atendimento</b> [regiões/cidades]
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
